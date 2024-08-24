@@ -16,12 +16,6 @@ This is a simple countdown timer webpage that allows users to set a target date 
 4. The remaining time will be displayed and updated every second.
 5. When the countdown reaches zero, the message "Time's up!" will be displayed.
 
-## Project Structure
-
-- `index.html`: The main HTML file containing the structure of the webpage.
-- `style.css`: (Optional) A separate CSS file if needed for additional styling.
-- `script.js`: (Optional) A separate JavaScript file if needed for additional functionality.
-
 ## Deployment
 
 This project is hosted using GitHub Pages. To deploy your own version:
