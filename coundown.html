@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <link src="git remote add origin https://github.com/Kiran8620/Countdown.git
+    git branch -M main
+    git push -u origin main">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        input, button {
+            font-size: 1rem;
+            padding: 10px;
+            margin: 5px;
+        }
+        .timer {
+            font-size: 2rem;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Countdown Timer</h1>
+    <input type="date" id="dateInput" placeholder="YYYY-MM-DD">
+    <input type="time" id="timeInput" placeholder="HH:MM:SS">
+    <button onclick="startCountdown()">Start Countdown</button>
+    <div class="timer" id="countdownDisplay"></div>
+
+    <script>
+        function startCountdown() {
+            const dateInput = document.getElementById('dateInput').value;
+            const timeInput = document.getElementById('timeInput').value;
+
+            const targetDate = new Date(`${dateInput}T${timeInput}`);
+            const countdownDisplay = document.getElementById('countdownDisplay');
+
+            function updateCountdown() {
+                const now = new Date();
+                const remainingTime = targetDate - now;
+
+                if (remainingTime <= 0) {
+                    countdownDisplay.textContent = "Time's up!";
+                    clearInterval(interval);
+                    return;
+                }
+
+                const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+                countdownDisplay.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+
+            const interval = setInterval(updateCountdown, 1000);
+        }
+    </script>
+</body>
+</html>
